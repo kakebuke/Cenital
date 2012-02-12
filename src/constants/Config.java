@@ -1,6 +1,6 @@
 package constants;
 
-public class GameData {
+public class Config {
 	public static int SCREEN_WIDTH = 480;
 	public static int SCREEN_HEIGHT = 320;	
 	

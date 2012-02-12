@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-import constants.GameData;
+import constants.Config;
 
 public class Cenital implements ApplicationListener, InputProcessor {
 	
@@ -18,7 +18,7 @@ public class Cenital implements ApplicationListener, InputProcessor {
 	private WorldMap worldMap;
 	
 	public void create() {
-		cam = new OrthographicCamera(GameData.SCREEN_WIDTH, GameData.SCREEN_HEIGHT);
+		cam = new OrthographicCamera(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 		batch = new SpriteBatch();
 		Gdx.input.setInputProcessor(this);		
 		
@@ -41,7 +41,7 @@ public class Cenital implements ApplicationListener, InputProcessor {
 
 	public void render() {
 		GL10 gl = Gdx.graphics.getGL10();
-		glViewport = new Rectangle(0, 0, GameData.SCREEN_WIDTH, GameData.SCREEN_HEIGHT);
+		glViewport = new Rectangle(0, 0, Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 		
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         gl.glViewport(
