@@ -52,8 +52,8 @@ public class WorldMap {
 	private void setScrollPosition(float deltaTime) {
 		float speed;
 		if (maxDespl == 0) {
-			Gdx.app.log("DEBUG", "GameData.WORLD_HEIGTH + pos.y = " + (Config.WORLD_HEIGTH + pos.y));
-			maxDespl = (int) (Math.min(Config.WORLD_HEIGTH + pos.y, Config.SCREEN_HEIGHT));
+			Gdx.app.log("DEBUG", "GameData.WORLD_HEIGTH + pos.y = " + (Config.WORLD_HEIGTH - (pos.y + Config.SCREEN_HEIGHT)));
+			maxDespl = (int) (Math.min(Config.WORLD_HEIGTH - (pos.y + Config.SCREEN_HEIGHT), Config.SCREEN_HEIGHT));
 		}		
 		Gdx.app.log("DEBUG", "" + maxDespl + ", " + pos.y);
 		speed = Config.SCREEN_HEIGHT / TIME_SCROLLING;
