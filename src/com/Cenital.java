@@ -3,6 +3,7 @@ package com;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -69,7 +70,23 @@ public class Cenital implements ApplicationListener, InputProcessor {
 	 * *********/
 
 	public boolean keyDown(int key) {
-		worldMap.handleInput(key);
+		//worldMap.handleInput(key);
+			switch (key)
+			{
+				case Keys.UP:
+					cam.translate(0, 16, 0);
+					glViewport.y += 16;
+					break;
+				case Keys.DOWN:
+					cam.translate(0, -16, 0);
+					break;
+				case Keys.RIGHT:
+					cam.translate(16, 0, 0);
+					break;
+				case Keys.LEFT:
+					cam.translate(-16, 0, 0);
+					break;
+			}
 		return false;
 	}
 
