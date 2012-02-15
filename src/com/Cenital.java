@@ -22,6 +22,7 @@ public class Cenital implements ApplicationListener, InputProcessor {
 		cam = new OrthographicCamera(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 		batch = new SpriteBatch();
 		Gdx.input.setInputProcessor(this);		
+		glViewport = new Rectangle(0, 0, Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 		
 		try {
 			worldMap = new WorldMap();
@@ -42,15 +43,15 @@ public class Cenital implements ApplicationListener, InputProcessor {
 
 	public void render() {
 		GL10 gl = Gdx.graphics.getGL10();
-		glViewport = new Rectangle(0, 0, Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+		
 		
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-        gl.glViewport(
-        	(int) glViewport.x, (int) glViewport.y,
-            (int) glViewport.width, (int) glViewport.height
-        );
+//        gl.glViewport(
+//        	(int) glViewport.x, (int) glViewport.y,
+//            (int) glViewport.width, (int) glViewport.height
+//        );
         cam.update();
-        cam.apply(gl);  
+        //cam.apply(gl);  
         
         worldMap.draw(batch, Gdx.graphics.getDeltaTime());
 	}
@@ -75,10 +76,12 @@ public class Cenital implements ApplicationListener, InputProcessor {
 			{
 				case Keys.UP:
 					cam.translate(0, 16, 0);
-					glViewport.y += 16;
+					//glViewport.y -= 16;
+					//cam.position.set(cam.position.x, cam.position.y + 16, cam.position.z);
 					break;
 				case Keys.DOWN:
 					cam.translate(0, -16, 0);
+					//cam.position.set(cam.position.x, cam.position.y - 16, cam.position.z);
 					break;
 				case Keys.RIGHT:
 					cam.translate(16, 0, 0);
