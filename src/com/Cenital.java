@@ -24,6 +24,8 @@ public class Cenital implements ApplicationListener, InputProcessor {
 		Gdx.input.setInputProcessor(this);		
 		glViewport = new Rectangle(0, 0, Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 		
+		cam.position.set(Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 2, 0);
+		
 		try {
 			worldMap = new WorldMap();
 		} catch (Exception e) {
@@ -42,16 +44,17 @@ public class Cenital implements ApplicationListener, InputProcessor {
 	}
 
 	public void render() {
+		handleInput();
 		GL10 gl = Gdx.graphics.getGL10();
 		
-		
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-//        gl.glViewport(
-//        	(int) glViewport.x, (int) glViewport.y,
-//            (int) glViewport.width, (int) glViewport.height
-//        );
+        gl.glViewport(
+        	(int) glViewport.x, (int) glViewport.y,
+            (int) glViewport.width, (int) glViewport.height
+        );
         cam.update();
-        //cam.apply(gl);  
+        cam.apply(gl);  
+        batch.setProjectionMatrix(cam.combined);
         
         worldMap.draw(batch, Gdx.graphics.getDeltaTime());
 	}
@@ -65,6 +68,25 @@ public class Cenital implements ApplicationListener, InputProcessor {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	private void handleInput() {
+        if(Gdx.input.isKeyPressed(Keys.LEFT)) {
+                if (cam.position.x > 0)
+                        cam.translate(-3, 0, 0);
+        }
+        if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
+                if (cam.position.x < 1024)
+                        cam.translate(3, 0, 0);
+        }
+        if(Gdx.input.isKeyPressed(Keys.DOWN)) {
+                if (cam.position.y > 0)
+                        cam.translate(0, -3, 0);
+        }
+        if(Gdx.input.isKeyPressed(Keys.UP)) {
+                if (cam.position.y < 1024)
+                        cam.translate(0, 3, 0);
+        }
+}
 	
 	/*******************
 	 * INPUT PROCESSOR
