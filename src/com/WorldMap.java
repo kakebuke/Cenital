@@ -84,32 +84,6 @@ public class WorldMap {
 		//moveMap(key);
 	}
 	
-	private void moveMap(int key) {		
-		switch (key)
-		{
-			case Keys.UP:
-				if (pos.y + Config.WORLD_HEIGTH > Config.SCREEN_HEIGHT) {
-					pos.y -= Config.TILE_HEIGHT;
-				}
-				break;
-			case Keys.DOWN:
-				if (pos.y < 0) {
-					pos.y += Config.TILE_HEIGHT;
-				}
-				break;
-			case Keys.RIGHT:
-				if (pos.x + Config.WORLD_WIDTH > Config.SCREEN_WIDTH) {
-					pos.x -= Config.TILE_WIDTH;
-				}
-				break;
-			case Keys.LEFT:
-				if (pos.x < 0) {
-					pos.x += Config.TILE_WIDTH;
-				}
-				break;
-		}
-	}
-	
 	private void scrollMap(int key) {
 		scrolling = true;
 		origin = pos;
