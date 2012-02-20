@@ -18,7 +18,7 @@ public class Camera {
 	private Camera() {
 		cam = new OrthographicCamera(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 		cam.position.set(Config.SCREEN_WIDTH / 2, Config.SCREEN_HEIGHT / 2, 0);
-		glViewport = new Rectangle(0,0,Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+		glViewport = new Rectangle(0, 0, Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
 	}
 	
 	public static Camera getInstance() {
@@ -28,12 +28,13 @@ public class Camera {
 		return camera;
 	}
 	
-	
 	/**
 	 * Moves the camera to face the given position, smoothly and taking care of the boundaries of the world
-	 * @param position
+	 * @param Vector2 position position to face to
+	 * @param float time time to spend traveling
 	 */
-	public static void moveTo(Vector2 position) {
+	public static void moveTo(Vector2 position, float time) {
+		
 		
 	}
 	

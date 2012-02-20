@@ -36,6 +36,7 @@ public class Cenital implements ApplicationListener {
 	}
 
 	public void render() {		  
+		cam.updateCamera();
         batch.setProjectionMatrix(cam.getProjectionMatrix());        
         worldMap.draw(batch, Gdx.graphics.getDeltaTime());        
 	}
