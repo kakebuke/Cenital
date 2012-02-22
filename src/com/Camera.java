@@ -38,6 +38,18 @@ public class Camera {
 		
 	}
 	
+	public static void moveCamera(int x, int y, int z) {
+		cam.translate(x, y, z);
+	}
+	
+	public static String getX() {
+		return Double.toString(cam.position.x);
+	}
+	
+	public static String getY() {
+		return Double.toString(cam.position.y);
+	}
+	
 	public OrthographicCamera getCamera() {
 		return cam;
 	}

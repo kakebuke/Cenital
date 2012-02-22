@@ -80,7 +80,7 @@ public class WorldMap {
 	}
 
 	public void handleInput(int key) {
-		scrollMap(key);
+		//scrollMap(key);
 		//moveMap(key);
 	}
 	
