@@ -1,53 +1,56 @@
 package com;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.map.Map;
+
+import constants.Assets;
 
 public class Cenital implements ApplicationListener {
 	
 	public static WorldMap worldMap;
 	public static Camera cam;
+	public static Assets assets;
 	
 	private SpriteBatch batch;	
 	private InputHandler inputHandler;
+	
+	private Map mapArray;
 	
 	public void create() {
 		cam = Camera.getInstance();
 		batch = new SpriteBatch();
 		inputHandler = InputHandler.getInstance();
-				
+		assets = Assets.getInstance();
 		
-		try {
-			worldMap = new WorldMap();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}	
+		mapArray = new Map();
 	}
 
 	public void dispose() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void render() {		  
 		cam.updateCamera();
         batch.setProjectionMatrix(cam.getProjectionMatrix());        
-        worldMap.draw(batch, Gdx.graphics.getDeltaTime());        
+        //worldMap.draw(batch, Gdx.graphics.getDeltaTime()); 
+        try {
+			mapArray.draw(batch);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void resize(int arg0, int arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void resume() {
-		// TODO Auto-generated method stub
 		
 	}
 }

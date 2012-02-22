@@ -11,6 +11,7 @@ public class Assets {
 		this.assets = new HashMap();
 		
 		assets.put("map", "map.png");
+		assets.put("mapTiles", "mapTiles.png");
 	}
 	
 	public static Assets getInstance() 
