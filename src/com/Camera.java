@@ -38,8 +38,8 @@ public class Camera {
 		
 	}
 	
-	public static void moveCamera(int x, int y, int z) {
-		cam.translate(x, y, z);
+	public static void moveCamera(int x, int y, int r) {
+		cam.translate(x, y, r);
 	}
 	
 	public static String getX() {

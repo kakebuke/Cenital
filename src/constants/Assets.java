@@ -12,6 +12,7 @@ public class Assets {
 		
 		assets.put("map", "map.png");
 		assets.put("mapTiles", "mapTiles.png");
+		assets.put("player", "player.png");
 	}
 	
 	public static Assets getInstance() 

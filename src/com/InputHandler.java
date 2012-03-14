@@ -23,22 +23,27 @@ public class InputHandler implements InputProcessor {
 	public boolean keyDown(int arg0) {
 		
 		if (arg0 == Input.Keys.UP) {
-			Camera.moveCamera(0, Config.TILE_HEIGHT, 0);
+			//Camera.moveCamera(0, Config.TILE_HEIGHT, 0);
+			Cenital.player.moveUp();
 		}
 		
 		if (arg0 == Input.Keys.DOWN) {
-			Camera.moveCamera(0, -Config.TILE_HEIGHT, 0);
+			//Camera.moveCamera(0, -Config.TILE_HEIGHT, 0);
+			Cenital.player.moveDown();
 		}
 		
 		if (arg0 == Input.Keys.LEFT) {
-			Camera.moveCamera(-Config.TILE_WIDTH, 0, 0);
+			//Camera.moveCamera(-Config.TILE_WIDTH, 0, 0);
+			Cenital.player.moveLeft();
 		}
 		
 		if (arg0 == Input.Keys.RIGHT) {
-			Camera.moveCamera(Config.TILE_WIDTH, 0, 0);
+			Cenital.player.moveRight();
+			//Camera.moveCamera(Config.TILE_WIDTH, 0, 0);
 		}
-		
+
 		Gdx.app.log("DEBUG","Key= " + arg0 + " X=" + Camera.getX() + " Y=" + Camera.getY());
+		Gdx.app.log("DEBUG","Player= " + arg0 + " X=" + Cenital.player.getX() + " Y=" + Cenital.player.getY());
 		
 		return false;
 	}

@@ -1,6 +1,7 @@
 package com;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.map.Map;
 
@@ -16,6 +17,7 @@ public class Cenital implements ApplicationListener {
 	private InputHandler inputHandler;
 	
 	private Map mapArray;
+	public static Actor player;
 	
 	public void create() {
 		cam = Camera.getInstance();
@@ -24,6 +26,7 @@ public class Cenital implements ApplicationListener {
 		assets = Assets.getInstance();
 		
 		mapArray = new Map();
+		player = new Actor();
 	}
 
 	public void dispose() {
@@ -40,6 +43,7 @@ public class Cenital implements ApplicationListener {
         //worldMap.draw(batch, Gdx.graphics.getDeltaTime()); 
         try {
 			mapArray.draw(batch);
+			player.draw(batch);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
